@@ -52,12 +52,16 @@
   </div>
 
 <script>
-  GLightbox({
+  const lightbox = GLightbox({
     selector: '.glightbox',
     touchNavigation: true,
     loop: true,
-    zoomable: false,
-    history: false
+    zoomable: false
+  });
+
+  // 기본 a 태그 링크 이동 방지
+  document.querySelectorAll('.glightbox').forEach(a=>{
+    a.addEventListener('click', e => e.preventDefault());
   });
 </script>
 
