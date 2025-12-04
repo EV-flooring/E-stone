@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>E-STONE | marmoluna 패턴</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- GLightbox (CSS + JS) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <!--  -->
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <h1>marmoluna</h1>
+      <p>마르모루나</p>
+    </header>
+
+    <main>
+      <section class="detail-list">
+
+        <div class="detail-image-wrapper">
+          <p class="detail-label">단톤</p>
+          <a href="image/prestige/prestige-d-1.jpg" class="glightbox" data-gallery="prestige">
+            <img src="image/prestige/prestige-d-1.jpg" alt="prestige-d 이미지 1" class="detail-image">
+          </a>
+        </div>
+
+        <div class="detail-image-wrapper">
+          <p class="detail-label">도어라인</p>
+          <a href="image/prestige/prestige-d-2.jpg" class="glightbox" data-gallery="prestige">
+            <img src="image/prestige/prestige-d-2.jpg" alt="prestige-d 이미지 2" class="detail-image">
+          </a>
+        </div>
+
+        <div class="detail-image-wrapper">
+          <p class="detail-label">안쪽띠장</p>
+          <a href="image/prestige/prestige-d-3.jpg" class="glightbox" data-gallery="prestige">
+            <img src="image/prestige/prestige-d-3.jpg" alt="prestige-d 이미지 3" class="detail-image">
+          </a>
+        </div>
+
+      </section>
+    </main>
+    
+    <footer>
+      EV Flooring _ E-STONE
+    </footer>
+  </div>
+
+<script>
+  GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    zoomable: false
+  });
+</script>
+
+
+</body>
+</html>

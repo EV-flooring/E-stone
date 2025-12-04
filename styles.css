@@ -1,38 +1,38 @@
-/* 기본 리셋 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 전체 배경 & 폰트 */
 body {
   font-family: system-ui, sans-serif;
   background: #f5f5f5;
   color: #222;
 
-  /* 전체 화면 높이만 관리 */
   min-height: 100vh;
   padding: 24px;
 }
 
-/* 🔥 가운데 정렬 컨테이너 */
+/* 가운데 정렬 컨테이너 */
 .page {
   width: 100%;
   max-width: 640px;
-
-  /* 화면 세로 가운데 정렬 */
-  min-height: calc(100vh - 48px); /* body padding(위아래 24px) 뺀 높이 */
-  margin: 0 auto;                 /* 가로 가운데 */
+  min-height: calc(100vh - 48px);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;        /* 세로 가운데 */
+  justify-content: center;
 }
 
 /* 헤더 */
 header {
-  text-align: center;    /* 항상 중앙 정렬 */
   margin-bottom: 24px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 header h1 {
@@ -45,14 +45,13 @@ header p {
   color: #666;
 }
 
-/* 2×2 버튼 고정 배치 */
+/* 2×2 버튼 고정 배치 (기본) */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
-/* 버튼 카드 */
 .menu-card {
   background: #ffffff;
   padding: 20px 12px;
@@ -72,21 +71,17 @@ header p {
   box-shadow: 0 8px 18px rgba(0,0,0,0.05);
 }
 
-/* 메인 + 서브 리스트 가로 정렬 */
 .menu-content {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: flex-start;
+  align-items: center;
+  gap: 3px; /* 라벨과 리스트 간격 */
 }
 
-/* 메인 텍스트 */
 .label-main {
   font-size: 1rem;
   font-weight: 600;
 }
 
-/* 오른쪽 리스트 */
 .sub-list {
   list-style: none;
   margin-left: 8px;
@@ -103,12 +98,17 @@ header p {
 /* 푸터 */
 footer {
   margin-top: 24px;
-  text-align: center;   /* 항상 중앙 정렬 */
+  text-align: center;
   font-size: 0.75rem;
   color: #aaa;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 작은 화면 */
+/* ---- 반응형 ---- */
+
 @media (max-width: 360px) {
   body {
     padding: 16px;
@@ -132,7 +132,32 @@ footer {
   }
 }
 
-/* 중간 화면: 버튼 조금 커짐 */
+/* 화면이 작아질 때: 메뉴 세로 + 가운데 정렬 */
+@media (max-width: 770px) {
+  .menu-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sub-list {
+    margin-left: 0;
+  }
+
+  .sub-list li {
+    text-align: center;
+    white-space: normal; /* 너무 길면 줄바꿈 허용 */
+  }
+}
+
+/* 모바일 좁은 화면에서는 2열 → 1열 */
+@media (max-width: 480px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
 @media (min-width: 480px) {
   .menu-card {
     padding: 24px 14px;
@@ -144,7 +169,6 @@ footer {
   }
 }
 
-/* 큰 화면: 여백 넉넉 + 버튼 더 큼 */
 @media (min-width: 768px) {
   body {
     padding: 40px;
@@ -168,18 +192,21 @@ footer {
   }
 }
 
-/* ===================== */
-/* HS 시리즈 리스트 페이지 */
-/* ===================== */
+/* 시리즈 리스트 페이지 */
 
-.hs-list {
+.premium-list,
+.prestige-list,
+.carrara-list,
+.calacatta-list {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* 각 HS 이미지 카드 전체 (링크) */
-.hs-item {
+.premium-item,
+.prestige-item,
+.carrara-item,
+.calacatta-item {
   display: flex;
   flex-direction: column;
   background: #ffffff;
@@ -187,61 +214,83 @@ footer {
   border: 1px solid #e0e0e0;
   text-decoration: none;
   color: inherit;
-  overflow: hidden;          /* 이미지 모서리 둥글게 */
+  overflow: hidden;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.hs-item:hover {
+.premium-item:hover,
+.prestige-item:hover,
+.carrara-item:hover,
+.calacatta-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.06);
 }
 
-/* 이미지 부분 */
-.hs-image-wrapper {
+.premium-image-wrapper,
+.prestige-image-wrapper,
+.carrara-image-wrapper,
+.calacatta-image-wrapper {
   width: 100%;
 }
 
-.hs-image {
+.premium-image,
+.prestige-image,
+.carrara-image,
+.calacatta-image {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 360px;        /* 모바일에서 화면 크게 꽉 차는 정도 */
-  object-fit: cover;        /* 사진이 꽉 차게 잘리는 느낌 */
+  max-height: 360px;
+  object-fit: cover;
 }
 
-/* 캡션(텍스트) 부분 */
-.hs-caption {
+.premium-caption,
+.prestige-caption,
+.carrara-caption,
+.calacatta-caption {
   padding: 10px 14px 14px;
 }
 
-.hs-caption h2 {
+.premium-caption h2,
+.prestige-caption h2,
+.carrara-caption h2,
+.calacatta-caption h2 {
   font-size: 1rem;
   margin-bottom: 4px;
 }
 
-.hs-caption p {
+.premium-caption p,
+.prestige-caption p,
+.carrara-caption p,
+.calacatta-caption p {
   font-size: 0.8rem;
   color: #777;
 }
 
-/* 큰 화면에서 조금 더 여유 있게 */
 @media (min-width: 768px) {
-  .hs-image {
+  .premium-image,
+  .prestige-image,
+  .carrara-image,
+  .calacatta-image {
     max-height: 420px;
   }
 
-  .hs-caption h2 {
+  .premium-caption h2,
+  .prestige-caption h2,
+  .carrara-caption h2,
+  .calacatta-caption h2 {
     font-size: 1.05rem;
   }
 
-  .hs-caption p {
+  .premium-caption p,
+  .prestige-caption p,
+  .carrara-caption p,
+  .calacatta-caption p {
     font-size: 0.85rem;
   }
 }
 
-/* ===================== */
-/* HS 상세 페이지 (hs-01 등) */
-/* ===================== */
+/* 상세 페이지 */
 
 .detail-list {
   display: flex;
@@ -249,7 +298,6 @@ footer {
   gap: 16px;
 }
 
-/* 각 이미지 박스 */
 .detail-image-wrapper {
   width: 100%;
   background: #ffffff;
@@ -258,16 +306,14 @@ footer {
   border: 1px solid #e0e0e0;
 }
 
-/* 이미지 스타일 */
 .detail-image {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 420px;   /* 모바일에서 크게 보여줌 */
-  object-fit: cover;   /* 비율 유지 + 꽉 채우기 */
+  max-height: 420px;
+  object-fit: cover;
 }
 
-/* 이미지 위 설명 글씨 */
 .detail-label {
   font-size: 0.8rem;
   color: #666;
@@ -275,7 +321,6 @@ footer {
   text-align: left;
 }
 
-/* 큰 화면 */
 @media (min-width: 768px) {
   .detail-image {
     max-height: 500px;
