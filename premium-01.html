@@ -51,20 +51,8 @@
     </footer>
   </div>
 
-<script>
-  const lightbox = GLightbox({
-    selector: '.glightbox',
-    touchNavigation: true,
-    loop: true,
-    zoomable: false
-  });
-
-  // 기본 a 태그 링크 이동 방지
-  document.querySelectorAll('.glightbox').forEach(a=>{
-    a.addEventListener('click', e => e.preventDefault());
-  });
-</script>
-
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script src="lightbox.js"></script> 
 
 </body>
 </html>
