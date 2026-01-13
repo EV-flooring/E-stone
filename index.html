@@ -10,64 +10,65 @@
 
 <body>
   <div class="page">
-    <header>
-      <h1>현대엘리베이터 전용 카달로그</h1>
-      <p>엘리베이터 바닥재 · E-STONE</p>
-    </header>
+      <header>
+        <h1 class="brand-title">
+          <img src="/image/hyundai-elevator-logo.png" alt="현대엘리베이터 로고" class="brand-logo">
+          <span class="brand-text">
+            현대엘리베이터 <span class="title-break">전용 카달로그</span>
+          </span>
+        </h1>
+        <p>엘리베이터 바닥재 · E-STONE</p>
+      </header>
 
-    <main>
-      <div class="menu-grid">
+      <main>
+        <div class="menu-grid">
 
-        <a href="premium.html" class="menu-card">
-          <div class="menu-content">
-            <span class="label-main">프리미엄</span>
-            <ul class="sub-list">
-              <li>12010107G0100 (6 ~11인승)</li>
-              <li>12010107G0200 (12~15인승)</li>
-              <li>12010107G0300 (17~24인승)</li>
-            </ul>
+          <div class="menu-group">
+            <button type="button" class="menu-card menu-toggle" aria-expanded="false" aria-controls="sub-general">
+              <div class="menu-content">
+                <span class="label-main">일반자재코드</span>
+                <ul class="sub-list">
+                  <li>12010107G0100 (6 ~11인승)</li>
+                  <li>12010107G0200 (12~15인승)</li>
+                  <li>12010107G0300 (17~24인승)</li>
+                </ul>
+              </div>
+            </button>
+
+            <div id="sub-general" class="sub-row" >
+              <a class="sub-chip" href="standard.html">BL시리즈</a>
+              <a class="sub-chip" href="premium.html">HS시리즈</a>
+            </div>
           </div>
-        </a>
 
-        <a href="prestige.html" class="menu-card">
-          <div class="menu-content">
-            <span class="label-main">프레스티지</span>
-            <ul class="sub-list">
-              <li>12011108G0300 (6 ~11인승)</li>
-              <li>12011108G0200 (12~15인승)</li>
-              <li>12011108G0100 (17~24인승)</li>
-            </ul>
+          <div class="menu-group">
+            <button type="button" class="menu-card menu-toggle" aria-expanded="false" aria-controls="sub-premium">
+              <div class="menu-content">
+                <span class="label-main">프리미엄자재코드</span>
+                <ul class="sub-list">
+                  <li>12011108G0300 (6 ~11인승)</li>
+                  <li>12011108G0200 (12~15인승)</li>
+                  <li>12011108G0100 (17~24인승)</li>
+                </ul>
+              </div>
+            </button>
+
+            <div id="sub-premium" class="sub-row" >
+              <a class="sub-chip" href="prestige.html"><span class="series-code">HSP</span><span class="series-break">시리즈</span></a>
+              <a class="sub-chip" href="carrara.html"><span class="series-code">HSJ</span><span class="series-break">시리즈</span></a>
+              <a class="sub-chip" href="calacatta.html"><span class="series-code">HCL</span><span class="series-break">시리즈</span></a>
+            </div>
           </div>
-        </a>
 
-        <a href="carrara.html" class="menu-card">
-          <div class="menu-content">
-            <span class="label-main">하이엔드 카라라</span>
-            <ul class="sub-list">
-              <li>12011108G0300 (6 ~11인승)</li>
-              <li>12011108G0200 (12~15인승)</li>
-              <li>12011108G0100 (17~24인승)</li>
-            </ul>
-          </div>
-        </a>
-
-        <a href="calacatta.html" class="menu-card">
-          <div class="menu-content">
-            <span class="label-main">하이엔드 칼라카타</span>
-            <ul class="sub-list">
-              <li>12011108G0300 (6 ~11인승)</li>
-              <li>12011108G0200 (12~15인승)</li>
-              <li>12011108G0100 (17~24인승)</li>
-            </ul>
-          </div>
-        </a>
-
-      </div>
-    </main>
+        </div>
+      </main>
 
     <footer>
       EV Flooring _ E-STONE
     </footer>
   </div>
+
+  <script src="main.js"></script>
+  
 </body>
 </html>
