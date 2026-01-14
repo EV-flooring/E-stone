@@ -45,28 +45,8 @@ body{
 
 header{ text-align:center; }
 
-.brand-title{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  font-size: 1.75rem;
-  letter-spacing: -0.02em;
-  margin-bottom: 6px;
-
-  flex-wrap: nowrap;      /* 430px 전까지는 줄바꿈 금지 */
-  white-space: nowrap;    /* 텍스트 한 줄 고정 */
-}
-
-.brand-logo{
-  height: 32px;
-  width: auto;
-  flex-shrink: 0;
-}
-
 header h1{
-  font-size: 1.75rem;
+  font-size: clamp(1.2rem, 4.5vw, 1.75rem);
   letter-spacing: -0.02em;
   margin-bottom: 6px;
 }
@@ -78,11 +58,6 @@ header h1{
 
 /* 작은 화면: 줄바꿈 */
 @media (max-width: 430px){
-
-  .brand-title{
-    flex-wrap: wrap;      
-    white-space: normal;  
-  }
 
   .title-break{
     display: block;
@@ -313,6 +288,8 @@ footer{
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 0 70px ; /*모바일 여백*/
+  box-sizing: border-box;
 }
 
 .standard-item,
@@ -320,8 +297,10 @@ footer{
 .prestige-item,
 .carrara-item,
 .calacatta-item{
-  width: 400px;   
-  height: 350px; 
+  width: 100%;
+  max-width: 400px;   
+  aspect-ratio: 400 / 350;  /* 기존 비율(가로/세로) */
+  height: auto;             /* 고정 높이 제거 */
   margin: 0 auto;   
 
   display: flex;
@@ -372,12 +351,13 @@ footer{
 .prestige-caption,
 .carrara-caption,
 .calacatta-caption{
-  height: 48px;             
+  height: clamp(34px, 8vw, 48px);  /* 최소 34, 최대 48 */
+  flex: 0 0 auto;                  /* 고정값(48px) 대신 자동 */            
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 14px;            
-  flex: 0 0 48px;  
+  box-sizing: border-box; 
 }
 
 .standard-caption h2,
@@ -385,7 +365,7 @@ footer{
 .prestige-caption h2,
 .carrara-caption h2,
 .calacatta-caption h2{
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 3.2vw, 1.1rem);
   text-align: center;
 }
 
