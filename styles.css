@@ -270,6 +270,15 @@ main{
 }
 
 /* ---------- Footer ---------- */
+
+.footer-text {
+  text-align: center;
+   font-size: clamp(11px, 2.5vw, 15px);
+  color: #1b1f74c6;
+  padding-top: 15px;
+  font-weight: 700;
+}
+
 footer{
   margin-top: auto; 
   padding-top: clamp(28px, 6vw, 64px); 
