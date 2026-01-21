@@ -273,16 +273,22 @@ main{
 
 .footer-text {
   text-align: center;
-  font-size: clamp(15px, 2.5vw, 18px);
+  font-size: clamp(14px, 4vw, 20px);
   color: #1b1f74c6;
   padding-top: 15px;
   font-weight: 700;
+  text-shadow:
+    0.3px 0 0 currentColor,
+   -0.3px 0 0 currentColor;
 }
 
-@media (max-width: 425px){
+.break {
+  display: inline;
+}
 
-  .footer-text{
-    font-size:13px;
+@media (max-width: 580px) {
+  .break {
+    display: block;
   }
 }
 
